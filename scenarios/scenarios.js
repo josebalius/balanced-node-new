@@ -25,10 +25,24 @@ module.exports = {
     method: 'create'
   },
   account_create_buyer: {
-    
+    module: 'account',
+    method: 'add_card',
+    data: {
+      card_uri: "${request['card']['uri']}"
+    }
+    urlOptions: {
+      account_id: "${request['account']['id']}"
+    }
   },
   account_create_debit: {
-    
+    module: 'account',
+    method: 'add_debit',
+    data: {
+      amount: "${payload['amount'] if payload else request['amount'] or '1100'}"
+    },
+    urlOptions: {
+      account_id: "${request['account']['id']}"
+    }
   },
   account_create_hold: {
     

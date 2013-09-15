@@ -1,5 +1,5 @@
 {
-  "name": "balanced-official",
+  "name": "balanced-node-new",
   "description": "Offical Balanced Payments API Client for node.js, https://www.balancedpayments.com/docs/api",
   "version": "0.4.0",
   "author": "Balanced Payments / uh-sem-blee, Co. | typefoo",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/balanced/balanced-node.git"
+    "url": "https://github.com/uh-sem-blee/balanced-node-new.git"
   },
   "keywords": [
     "balanced",
