@@ -12,7 +12,7 @@ Installation
 The preferred way to install balanced for Node.js is to use the [npm](http://npmjs.org) package manager for Node.js. Simply type the following
 into a terminal window:
 ```
-npm install balanced-official
+npm install balanced-node-new
 ```
 
 Testing

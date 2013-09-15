@@ -45,22 +45,61 @@ module.exports = {
     }
   },
   account_create_hold: {
-    
+    module: 'account',
+    method: 'add_hold',
+    data: {
+      amount: "${payload['amount'] if payload else request['amount'] or '1100'}"
+    },
+    urlOptions: {
+      account_id: "${request['account']['id']}"
+    }
   },
   account_create_merchant: {
-    
+    module: 'account',
+    method: 'add_bank',
+    data: {
+      card_uri: "${request['bank']['uri']}"
+    }
+    urlOptions: {
+      account_id: "${request['account']['id']}"
+    }
   },
   account_underwrite_business: {
-    
+    module: 'account',
+    method: 'add_underwriter',
+    data: {
+      merchant: {}
+    },
+    urlOptions: {
+      account_id: "${request['account']['id']}"
+    }
   },
   account_underwrite_person: {
-    
+    module: 'account',
+    method: 'add_underwriter',
+    data: {
+      merchant: {}
+    },
+    urlOptions: {
+      account_id: "${request['account']['id']}"
+    }
   },
   bank_account_create: {
-
+    module: 'bank',
+    method: 'create',
+    data: {
+      name: "${payload['name'] if payload else request['bank_account']['name']}",
+      account_number: "${payload['account_number'] if payload else request['bank_account']['account_number']}",
+      routing_number: "${payload['routing_number'] if payload else request['bank_account']['routing_number']}",
+      type: "checking"
+    }
   },
   bank_account_delete: {
-    
+    module: 'bank',
+    method: 'delete',
+    urlOptions: {
+      bank_account_id: "${request['bank']['id']}"
+    }
   },
   bank_account_find_and_credit: {
     
