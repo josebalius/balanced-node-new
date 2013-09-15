@@ -31,7 +31,7 @@ Basic Usage
 -----------
 
 ```js
-var balanced = require('balanced');
+var balanced = require('balanced-node-new');
 
 balanced.init("API_SECRET", "MARKETPLACE_URI");
 
