@@ -71,7 +71,9 @@ balanced.customer.create({ name: "Valued Customer" }, function (err, newCustomer
 Which now allows us to do:
 
 ```js
-balanced.customer.add_bank(newCustomer.uri, {bank_account_uri: <bank_account_uri>},  function(err, response){ ... })
+balanced.customer.add_bank(newCustomer.uri, {
+  bank_account_uri: <bank_account_uri>
+},  function(err, response){ ... })
 ```
 
 In this API call we use the customer's URI as the request path and a JSON packet of required data.
