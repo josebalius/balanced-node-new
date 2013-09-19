@@ -36,7 +36,7 @@ var balanced = require('balanced-node-new');
 balanced.init("API_SECRET", "MARKETPLACE_URI");
 
 // Create a credit card
-balanced.card.create({
+new balanced.card().create({
     card_number: "5105105105105100",
     expiration_year: 2020,
     expiration_month: 12,
@@ -60,7 +60,7 @@ in the Balanced API and supersede the functionality previously provided by Accou
 were created to simplify merchant underwriting so that you can accept money on a vendors behalf.
 
 ```js
-balanced.customer.create({ name: "Valued Customer" }, function (err, newCustomer) {
+new balanced.customer().create({ name: "Valued Customer" }, function (err, newCustomer) {
     if (err) {
         console.error("customer.create", err);
         throw err;
@@ -71,9 +71,9 @@ balanced.customer.create({ name: "Valued Customer" }, function (err, newCustomer
 Which now allows us to do:
 
 ```js
-balanced.customer.add_bank(newCustomer.uri, {
+new balanced.customer(newCustomer.uri).add_bank({
   bank_account_uri: <bank_account_uri>
 },  function(err, response){ ... })
 ```
 
-In this API call we use the customer's URI as the request path and a JSON packet of required data.
+In this API call we use the customer's URI on the customer object when calling the `add_bank` method with a JSON packet of required data.

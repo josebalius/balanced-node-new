@@ -123,7 +123,7 @@ function createFunction(func, runner) {
       }
     }
     
-    balanced[action.module][action.method](uriOptions, data, function(err, res) {
+    new balanced[action.module]()[action.method](uriOptions, data, function(err, res) {
       if(err) {
         var ret = {
           name: runner.name,
