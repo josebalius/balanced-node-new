@@ -19,9 +19,7 @@ module.exports = {
     id: {
       module: 'card',
       method: 'id',
-      urlOptions: {
-        card_id: ':cards.create.id'
-      }
+      uriOptions: ':cards.create.uri'
     },
     update: {
       module: 'card',
@@ -31,9 +29,7 @@ module.exports = {
           my_custom_id: '12345'
         }
       },
-      urlOptions: {
-        card_id: ':cards.create.id'
-      }
+      uriOptions: ':cards.create.uri'
     }
   }
 }

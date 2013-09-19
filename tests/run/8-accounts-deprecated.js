@@ -15,9 +15,7 @@ module.exports = {
       data: {
         card_uri: ':cards.create.uri'
       },
-      urlOptions: {
-        account_id: ':accounts.create.id'
-      }
+      uriOptions: ':accounts.create.uri'
     },
     add_bank: {
       module: 'account',
@@ -25,9 +23,7 @@ module.exports = {
       data: {
         bank_account_uri: ':bank.create.uri'
       },
-      urlOptions: {
-        account_id: ':accounts.create.id'
-      }
+      uriOptions: ':accounts.create.uri'
     },
     add_underwriter: {
       module: 'account',

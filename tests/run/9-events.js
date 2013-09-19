@@ -9,9 +9,7 @@ module.exports = {
     id: {
       module: 'events',
       method: 'id',
-      urlOptions: {
-        event_id: ':events.list.items.0.id'
-      }
+      uriOptions: ':events.list.items.0.uri'
     }
   }
 }

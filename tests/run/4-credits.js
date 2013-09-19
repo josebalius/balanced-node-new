@@ -8,9 +8,7 @@ module.exports = {
       data: {
         amount: '10000'
       },
-      urlOptions: {
-        bank_account_id: ':bank.create.id'
-      }
+      uriOptions: ':bank.create.credits_uri'
     }
   }
 }

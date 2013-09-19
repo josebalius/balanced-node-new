@@ -11,14 +11,15 @@ module.exports = {
     },
     list: {
       module: 'customer',
-      method: 'list'
+      method: 'list',
+      data: {
+        name: 'John'
+      }
     },
     id: {
       module: 'customer',
       method: 'id',
-      urlOptions: {
-        customer_id: ':customers.create.id'
-      }
+      uriOptions: ':customers.create.uri'
     },
     add_card: {
       module: 'customer',
@@ -26,9 +27,7 @@ module.exports = {
       data: {
         card_uri: ':cards.create.uri'
       },
-      urlOptions: {
-        customer_id: ':customers.create.id'
-      }
+      uriOptions: ':customers.create.uri'
     },
     add_bank: {
       module: 'customer',
@@ -36,16 +35,12 @@ module.exports = {
       data: {
         bank_account_uri: ':bank.create.uri'
       },
-      urlOptions: {
-        customer_id: ':customers.create.id'
-      }
+      uriOptions: ':customers.create.uri'
     },
     verify_bank: {
       module: 'bank_account',
       method: 'init_bank_account_verification',
-      urlOptions: {
-        bank_account_id: ':bank.create.id'
-      }
+      uriOptions: ':bank.create.verifications_uri'
     },
     confirm_bank_account: {
       module: 'bank_account',
@@ -54,10 +49,7 @@ module.exports = {
         amount_1: 1,
         amount_2: 1
       },
-      urlOptions: {
-        bank_account_id: ':bank.create.id',
-        verification_id: ':customers.verify_bank.id'
-      }
+      uriOptions: ':customers.verify_bank.uri'
     }
   }
 }

@@ -10,9 +10,7 @@ module.exports = {
         amount: 500,
         description: 'A more descriptive response about this transaction'
       },
-      urlOptions: {
-        customer_id: ':customers.create.id'
-      }
+      uriOptions: ':customers.create.debits_uri'
     }
   }
 }

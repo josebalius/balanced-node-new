@@ -5,23 +5,17 @@ module.exports = {
     delete_bank: {
       module: 'bank_account',
       method: 'delete',
-      urlOptions: {
-        bank_account_id: ':bank.create.id'
-      }
+      uriOptions: ':bank.create.uri'
     },
     delete_card: {
       module: 'card',
       method: 'delete',
-      urlOptions: {
-        card_id: ':cards.create.id'
-      }
+      uriOptions: ':cards.create.uri'
     },
     delete_customer: {
       module: 'customer',
       method: 'delete',
-      urlOptions: {
-        customer_id: ':customers.create.id'
-      }
+      uriOptions: ':customers.create.uri'
     }
   }
 }

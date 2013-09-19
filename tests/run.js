@@ -68,7 +68,7 @@ function createFunction(func, runner) {
     var action = runner.functions[func];
 
     var data = null;
-    var urlOptions = null;
+    var uriOptions = null;
     
     if(action.data) {
       data = action.data;
@@ -88,30 +88,42 @@ function createFunction(func, runner) {
         }
       }
     }
-    if(action.urlOptions) {
-      urlOptions = action.urlOptions;
-      var urlKeys = Object.keys(urlOptions);
-      for(i = 0; i < urlKeys.length; i++) {
-        var d = urlOptions[urlKeys[i]];
-        if(typeof d !== 'string') {
-          continue;
-        }
-        console.log('Trying to replace a url argument');
-        console.log(urlKeys);
-        console.log(d);
-        if(d.indexOf(':') >= 0 && d.indexOf('://') === -1) {
-          var variablePieces = d.substr(1).split('.');
+    if(action.uriOptions) {
+      if(typeof action.uriOptions === 'string') {
+        if(action.uriOptions.indexOf(':') >= 0 && action.uriOptions.indexOf('://') === -1) {
+          var variablePieces = action.uriOptions.substr(1).split('.');
           var newVar = testObjects;
           for(var j = 0; j < variablePieces.length; j++) {
             newVar = newVar[variablePieces[j]];
           }
-          urlOptions[urlKeys[i]] = newVar;
+          uriOptions = newVar;
           console.log('URL Option replaced:' + newVar);
+        }
+      } else {
+        uriOptions = action.uriOptions;
+        var urlKeys = Object.keys(uriOptions);
+        for(i = 0; i < urlKeys.length; i++) {
+          var d = uriOptions[urlKeys[i]];
+          if(typeof d !== 'string') {
+            continue;
+          }
+          console.log('Trying to replace a url argument');
+          console.log(urlKeys);
+          console.log(d);
+          if(d.indexOf(':') >= 0 && d.indexOf('://') === -1) {
+            var variablePieces = d.substr(1).split('.');
+            var newVar = testObjects;
+            for(var j = 0; j < variablePieces.length; j++) {
+              newVar = newVar[variablePieces[j]];
+            }
+            uriOptions[urlKeys[i]] = newVar;
+            console.log('URL Option replaced:' + newVar);
+          }
         }
       }
     }
     
-    balanced[action.module][action.method](data, urlOptions, function(err, res) {
+    balanced[action.module][action.method](uriOptions, data, function(err, res) {
       if(err) {
         var ret = {
           name: runner.name,

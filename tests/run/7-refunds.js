@@ -9,9 +9,7 @@ module.exports = {
         debit_uri: ':debits.customer_debit.uri',
         description: 'A more descriptive response about this refund'
       },
-      urlOptions: {
-        customer_id: ':customers.create.id'
-      }
+      uriOptions: ':customers.create.refunds_uri'
     }
   }
 }

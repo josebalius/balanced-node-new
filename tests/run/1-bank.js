@@ -23,9 +23,7 @@ module.exports = {
     id: {
       module: 'bank_account',
       method: 'id',
-      urlOptions: {
-        bank_account_id: ':bank.create.id'
-      }
+      uriOptions: ':bank.create.uri'
     }
   }
 }

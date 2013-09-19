@@ -3,7 +3,7 @@ Balanced Node.js library
 
 [![Build Status](https://travis-ci.org/balanced/balanced-node.png?branch=master)](https://travis-ci.org/balanced/balanced-node)
 
-The official Node.js library for [Balanced Payments](https://www.balancedpayments.com).  Originally written by [Tenor Enterprises](http://tenorent.com/).
+The official Node.js library for [Balanced Payments](https://www.balancedpayments.com).  Written by [uh-sem-blee, Co.](http://www.uh-sem-blee.com)
 
 The Balanced Payments API located here: https://www.balancedpayments.com/docs/api.
 
@@ -71,5 +71,7 @@ balanced.customer.create({ name: "Valued Customer" }, function (err, newCustomer
 Which now allows us to do:
 
 ```js
-balanced.customer.add_bank({bank_account_uri: <bank_account_uri>}, {customer_id: newCustomer.customer_uri},  function(err, response){ ... })
+balanced.customer.add_bank(newCustomer.uri, {bank_account_uri: <bank_account_uri>},  function(err, response){ ... })
 ```
+
+In this API call we use the customer's URI as the request path and a JSON packet of required data.
