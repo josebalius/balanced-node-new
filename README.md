@@ -33,10 +33,10 @@ Basic Usage
 ```js
 var balanced = require('balanced-node-new');
 
-balanced.init("API_SECRET", "MARKETPLACE_URI");
+var b = balanced.init("API_SECRET", "MARKETPLACE_URI");
 
 // Create a credit card
-new balanced.card().create({
+new b.card().create({
     card_number: "5105105105105100",
     expiration_year: 2020,
     expiration_month: 12,
@@ -60,7 +60,7 @@ in the Balanced API and supersede the functionality previously provided by Accou
 were created to simplify merchant underwriting so that you can accept money on a vendors behalf.
 
 ```js
-new balanced.customer().create({ name: "Valued Customer" }, function (err, newCustomer) {
+new b.customer().create({ name: "Valued Customer" }, function (err, newCustomer) {
     if (err) {
         console.error("customer.create", err);
         throw err;
@@ -71,7 +71,7 @@ new balanced.customer().create({ name: "Valued Customer" }, function (err, newCu
 Which now allows us to do:
 
 ```js
-new balanced.customer(newCustomer.uri).add_bank({
+new b.customer(newCustomer.uri).add_bank({
   bank_account_uri: <bank_account_uri>
 },  function(err, response){ ... })
 ```
